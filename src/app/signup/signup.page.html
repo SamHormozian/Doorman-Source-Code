@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar class="myToolbar" mode="md">
+    <ion-buttons slot="start" mode="md">
+      <ion-back-button defaultHref="/" mode="md" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-center">Sign Up</ion-title>
+    <div slot="end"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-row class="mTop20">
+		<ion-col size="12" class="text-center">
+			<label class="loginHeader">(enter phone number or email to sign up)</label>
+		</ion-col>
+	</ion-row>
+	<form [formGroup]="signUpForm" (ngSubmit)="doSubmitForm()" novalidate>
+		<ion-row class="formRow">
+			<ion-list mode="md" class="" lines="none">
+				<div class="formInputRow mBotm20">
+					<label>Enter Phone Number</label>
+			  		<ion-input type="tel" placeholder="(000) - 000 - 0000" mask="(***) *** - ****" formControlName="phone" maxlength="16"></ion-input>
+			  		<span class="formError" *ngIf="isSubmitted && errorControl.phone.errors?.required">
+						Phone number is required.
+					</span>
+				</div>
+				<div class="formInputRow mBotm20">
+					<label>Enter Email Address (Optional)</label>
+			  		<ion-input type="email" placeholder="xyz@gmail.com" formControlName="email"></ion-input>
+			  		<span class="formError" *ngIf="isSubmitted && errorControl.email.errors?.pattern">
+				      Please provide a valid email address.
+				    </span>
+				</div>
+			</ion-list>
+		</ion-row>
+		<ion-row class="paddingBottom0 padd10 mBotm10 paddingLeft15">
+			<div class="formInputRow privacyPolicy">
+				<ion-checkbox slot="start" formControlName="termsCheck" mode="md"></ion-checkbox>
+				<ion-label>I agree to the <span>terms & conditions</span> and <span>privacy policy</span></ion-label>
+				<span class="formError" *ngIf="isSubmitted && errorControl.termsCheck.errors?.required">
+			      Please agree to the terms & conditions and privacy policy.
+			    </span>
+			</div>
+		</ion-row>
+		<ion-row class="paddingTop0 padd10">
+			<ion-col size="12" class="text-center">
+				 <ion-button fill="solid" expand="block" mode="md" shape="solid" color="blue" class="btnForAll" type="submit">Next</ion-button>
+			</ion-col>
+		</ion-row>
+	</form>
+</ion-content>
+<ion-footer class="ion-no-border footerBar">
+  <ion-row class="padd10">
+	<ion-col size="12" class="text-center">
+		 <label class="footerLabel">Already have an account? <span routerLink="/signin" routerDirection="root">Sign In</span></label>
+	</ion-col>
+</ion-row>
+</ion-footer>

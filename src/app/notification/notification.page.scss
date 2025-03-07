@@ -1,0 +1,53 @@
+.headingRow{
+	border-top: 1px solid #aa9797;
+	border-bottom: 2px solid #aa9797;
+	padding: 10px;
+
+
+	h2{
+		color: #fff;
+		font-size: 19px;
+		margin: 0px;
+	}
+}
+.toggleRow{
+	padding-top: 0px;
+
+	ion-list{
+		width: 100%;
+		background: none;
+		padding: 0px;
+
+		ion-item{
+			--background: none;
+			--padding-start: 0px;
+			--border-color: #404040;
+			--inner-border-width: 0px;
+			border-bottom: 2px solid #aa9797;
+
+			ion-label{
+				padding-left: 15px;
+				color: #c8bfbf;
+				font-size: 15px;
+				text-shadow: 0px 0px 1px #c8bfbf;
+				text-overflow: unset;
+				white-space: normal;
+
+				.note{
+					color: #fff;
+					font-size: 12px;
+				}
+			}
+
+			ion-toggle{
+				width: 43px;
+				height: 22px;
+				--handle-width: 16px;
+				--handle-height: 16px;
+				--handle-spacing: 4px;
+				--handle-background: #c8bfbf;
+				--handle-background-checked: #fff;
+			}
+		}
+	}
+}

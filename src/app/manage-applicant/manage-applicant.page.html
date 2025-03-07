@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar class="myToolbar" mode="md">
+    <ion-buttons slot="start" mode="md">
+      <ion-back-button defaultHref="/edit-event/{{eventId}}" mode="md" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-center">Manage Applicants</ion-title>
+    <div slot="end"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-row class="padd15" *ngIf="applicantLists.length > 0">
+		<div class="mainRow" *ngFor="let applicant of applicantLists">
+			<span class="leftImg">
+				<img src="{{applicant.applicant_details.profile_pic}}">
+			</span>
+			<span class="middleText">
+				<span>{{applicant.applicant_details.name}}</span>
+			</span>
+			<span class="rightImg" (click)="doSendNotification(applicant.applicant_id, 'single')">
+				<img src="../assets/images/kick.png">
+			</span>
+		</div>
+	</ion-row>
+</ion-content>
+<ion-footer *ngIf="applicantLists.length > 0">
+	<ion-row class="footerRow">
+		<ion-col size="7">
+			<span>Finish editing applicants. <br />A notification will be sent to those who were uninvited</span>
+		</ion-col>
+		<ion-col size="5">
+			<ion-button fill="solid" expand="block" mode="md" shape="solid" color="blue" class="btnForAll" (click)="doSendNotification('', 'all')">Submit</ion-button>
+		</ion-col>
+	</ion-row>
+</ion-footer>

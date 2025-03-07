@@ -1,0 +1,59 @@
+.tab-selected {
+    color: #60f4d2;
+
+    ion-label{
+    	color: #fff;
+    }
+} 
+ion-tabs{
+	ion-label{
+		text-transform: uppercase;
+		font-size: 10px;
+		letter-spacing: 1px;
+		padding-top: 5px;
+		font-weight: 500;
+		margin-bottom: 15px;
+	}
+	ion-icon
+	{
+		margin-top: 19px;
+	}
+}
+.homeIconActive{
+	background: url('/assets/icon/home_active.png') no-repeat center;
+	background-size: 28px;
+}
+.mapIconActive{
+	background: url('/assets/icon/map_active.png') no-repeat center;
+	background-size: 27px;
+}
+.hostIconActive{
+	background: url('/assets/icon/host_active.png') no-repeat center;
+	background-size: 28px;
+}.controlIconActive{
+	background: url('/assets/icon/controlls_active.png') no-repeat center;
+	background-size: 28px;
+}
+.homeIconInactive{
+	background: url('/assets/icon/home_inactive.png') no-repeat center;
+	background-size: 28px;
+}
+.mapIconInactive{
+	background: url('/assets/icon/map_inactive.png') no-repeat center;
+	background-size: 27px;
+}
+.hostIconInactive{
+	background: url('/assets/icon/host_inactive.png') no-repeat center;
+	background-size: 28px;
+}.controlIconInactive{
+	background: url('/assets/icon/controlls_inactive.png') no-repeat center;
+	background-size: 28px;
+}
+.topActiveBar{
+	position: absolute;
+	display: block;
+	border: 2px solid #60f4d2;
+	top: 0px;
+	width: 30px;
+	border-radius: 0px 0px 5px 5px;
+}

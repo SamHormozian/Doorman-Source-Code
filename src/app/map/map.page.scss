@@ -1,0 +1,96 @@
+.mapContainer{
+	width: 100%;
+	height: 100%;
+	div{
+		width: 100%;
+		height: 100%;
+	}
+
+	.partyRow{
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		padding-bottom: 25px !important;
+		padding-left: 20px;
+	}
+	.partyContainer{
+		display: flex;
+	  	flex-wrap: nowrap;
+	  	overflow-x: auto;
+	}
+	.upcoming_event_slider{
+		width: 90%;
+		padding: 7px;
+		background: #fff;
+		border-radius: 10px;
+		flex: 0 0 auto;
+		margin-right: 15px;
+		display: table;
+		position: relative;
+		min-height: 108px;
+
+		.partyLeftContain{
+			width: 34%;
+			vertical-align: middle;
+			display: table-cell;
+
+			img{
+				border-radius: 10px;
+				vertical-align: middle;
+				height: 95px;
+				width: 100%;
+				object-fit: cover;
+			}
+		}
+
+		.partyRightContain{
+			width: 65%;
+	  		vertical-align: middle;
+			display: table-cell;
+
+
+	  		h2{
+				margin-top: 0px;
+				font-size: 18px;
+				font-weight: 600;
+				letter-spacing: 0.5px;
+				color: #000;
+			}
+
+			.partyLabelHead{
+		  		width: 100%;
+		  		color: #000;
+		  		vertical-align: middle;
+		  		letter-spacing: 1px;
+				font-size: 14px;
+				display: inline-block;
+				margin-bottom: 10px;
+
+		  		.clockIcon{
+			  		font-size: 18px;
+			  		vertical-align: middle;
+			  		margin-right: 8px;
+			  	}
+
+			  	.calendarIcon{
+			  		font-size: 15px;
+			  		vertical-align: middle;
+			  		margin-right: 8px;
+			  	}
+		  	}
+	  	}
+	}
+}
+.label-position {
+    bottom: 6px;
+    left: 0;
+    position: relative;
+}
+.customMarker{
+	width: 50px !important;
+}
+#markerLayer{
+	img{
+		border-radius: 50% !important;
+	}
+}

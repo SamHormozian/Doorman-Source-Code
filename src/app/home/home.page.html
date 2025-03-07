@@ -1,0 +1,124 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="myToolbar" mode="md">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="text-center doormanTitle">
+      <!-- <img src="../assets/images/doorman.png" class="doormanLogo"> -->
+      Doorman
+    </ion-title>
+    <div slot="end" class="text-center">
+      <img src="{{userData.profile_pic}}" class="ProfilePic" routerLink="/tabs/tabs/settings/user-profile/0" routerDirection="root">
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-row class="paddingTop15 padd10">
+    <ion-col size="12" class="paddingTop0">
+        <ion-input placeholder="Search for event or host..." type="text" class="srcCls" (keyup)="searchEventHost($event)">
+          <ion-icon name="search" slot="start" class="scrIcon"></ion-icon>
+        </ion-input>
+        <div class="eventTypeBar" *ngIf="searchData.length > 0">
+            <ul>
+              <li *ngFor="let src of searchData">
+                <span *ngIf="src.src_type == 'event'" routerLink="/event-details/{{src.event_id}}" routerDirection="root">{{src.event_name}}</span>
+                <span *ngIf="src.src_type == 'host'" routerLink="/host-profile/{{src.id}}/0" routerDirection="root">{{src.name}}</span>
+              </li>
+            </ul>
+          </div>
+      </ion-col>
+  </ion-row>
+  <!-- Strat Upcoming Events  -->
+  <ion-row class="paddingBottom5 padd10">
+    <ion-col size="8">
+      <label class="topTitle">Upcoming event's</label>
+    </ion-col>
+    <ion-col size="4" class="text-right" *ngIf="upcomingEvents.length > 0" routerLink="/tabs/tabs/settings/hosting-upcoming-events" routerDirection="root">
+      <label class="viewAllTitle">View All</label>
+      <ion-icon name="chevron-forward-outline" class="topIcon"></ion-icon>
+    </ion-col>
+  </ion-row>
+  <ion-row class="paddingTop0 paddingBottom20 padd15">
+    <div class="eventSliderBar" *ngIf="upcomingEvents.length > 0">
+        <swiper
+          [config]="eventSliderConfig"
+          #eventSlider
+          *ngIf="upcomingEvents.length > 0"
+        >
+          <ng-template swiperSlide *ngFor="let event of upcomingEvents" >
+            <div routerLink="/event-details/{{event.event_id}}" routerDirection="root">
+              <div class="sliderLeft">
+                <label class="hostBy">{{event.host_name}} <ion-icon name="remove-outline"></ion-icon></label>
+                <h2>{{event.event_name}}</h2>
+                <label class="location"><ion-icon name="locationIcon" class="locationIcon"></ion-icon> {{event.distance}} Meter</label>
+              </div>
+              <div class="sliderRight">
+                <img src="{{event.event_cover_image}}">
+              </div>
+            </div>
+          </ng-template>
+        </swiper>
+    </div>
+    <div class="eventSliderBar" *ngIf="upcomingEvents.length == '0'">
+      <div class="noEventBar">
+        <ion-col size="12">
+          <img src="../assets/images/no_data_calendar.png">
+          <label>No Upcoming Events</label>
+          <p>Check Back Soon</p>
+        </ion-col>
+      </div>
+    </div>
+  </ion-row>
+  <!-- End Upcoming Events  -->
+
+  <!-- Start Event Categories  -->
+  <ion-row class="paddingTop0 paddingBottom5 padd10" *ngIf="categoryLists.length > 0">
+    <ion-col size="8">
+      <label class="topTitle">Event Categories</label>
+    </ion-col>
+    <ion-col size="4" class="text-right" routerLink="/tabs/tabs/home/event-categories" routerDirection="root">
+      <label class="viewAllTitle">View All</label>
+      <ion-icon name="chevron-forward-outline" class="topIcon"></ion-icon>
+    </ion-col>
+  </ion-row>
+  <ion-row class="paddingTop0 paddingRight0 paddingBottom20 padd15"  *ngIf="categoryLists.length > 0">
+    <div class="categorySliderBar">
+        <div class="categoryContainer" *ngFor="let category of categoryLists" routerLink="/tabs/tabs/home/events/0/{{category.cat_id}}" routerDirection="root">
+          <img src="{{category.category_image}}">
+          <label>{{category.category_name}}</label>
+        </div>
+    </div>
+  </ion-row>
+  <!-- End Event Categories  -->
+
+  <!-- Start Popular Hosts  -->
+  <ion-row class="paddingTop0 paddingBottom5 padd10">
+    <ion-col size="8">
+      <label class="topTitle">Popular Hosts</label>
+    </ion-col>
+    <ion-col size="4" class="text-right" routerLink="/tabs/tabs/home/popular-host" routerDirection="root" *ngIf="popularHosts.length > 0">
+      <label class="viewAllTitle">View All</label>
+      <ion-icon name="chevron-forward-outline" class="topIcon"></ion-icon>
+    </ion-col>
+  </ion-row>
+  <ion-row class="paddingTop0 paddingRight0 mBotm20 padd15">
+    <div class="hostSliderBar" *ngIf="popularHosts.length > 0">
+        <div class="hostContainer" routerLink="/host-profile/{{host.host_id}}/0" routerDirection="root" *ngFor="let host of popularHosts">
+          <img src="{{host.profile_pic}}">
+          <div>
+            <label class="hostName">{{host.name}}</label>
+            <label class="hostAge">{{host.age}}, {{host.gender}}</label>
+          </div>
+        </div>
+    </div>
+    <div class="noHostBar" *ngIf="popularHosts.length == '0'">
+      <ion-col size="12">
+        <img src="../assets/images/man.png">
+        <label>No Hosts Are Available</label>
+        <p>Check Back Soon</p>
+      </ion-col>
+    </div>
+  </ion-row>
+  <!-- End Popular Hosts  -->
+</ion-content>

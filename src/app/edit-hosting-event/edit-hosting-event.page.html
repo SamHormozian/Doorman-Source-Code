@@ -1,0 +1,95 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="myToolbar" mode="md">
+    <ion-buttons slot="start" mode="md">
+      <ion-back-button defaultHref="/tabs/tabs/settings" mode="md" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-center">{{eventDetails.event_name}}</ion-title>
+    <div slot="end" class="text-center">
+      <img src="../assets/icon/scanner.png" class="ScannerIcon" routerLink="/scan-qr" routerDirection="root">
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-grid>
+		<ion-row class="padding0 topBannerRow">
+			<ion-col class="padding0" size="12">
+				<img src="{{eventDetails.event_cover_image}}">
+			</ion-col>
+		</ion-row>
+		<ion-row class="padding0 hostRow">
+			<ion-col class="padding0" size="12">
+				<hr><span>{{eventDetails.host_name}}</span><hr>
+			</ion-col>
+		</ion-row>
+		<ion-row class="padding0 eventTitleRow">
+			<ion-col class="padding0" size="12">
+				<h2>{{eventDetails.event_name}}</h2>
+			</ion-col>
+		</ion-row>
+		<ion-row class="middleRow">
+			<ion-col class="middleLeft" size="6">
+				<span class="iconLeft">
+					<img src="{{eventDetails.host_profile_pic}}">
+				</span>
+				<span class="rightDetails">
+					<span class="title" *ngIf="userId == eventDetails.host_id">Me</span>
+					<span class="title" *ngIf="userId != eventDetails.host_id">{{eventDetails.host_name}}</span>
+				</span>
+			</ion-col>
+			<ion-col class="middleRight" size="6">
+				<span class="iconLeft">
+					<img src="../assets/icon/location2.png">
+				</span>
+				<span class="rightDetails">
+					<span class="head">Distance:</span>
+					<span class="title">{{eventDetails.distance}} miles away</span>
+				</span>
+			</ion-col>
+		</ion-row>
+		<ion-row class="padding0 descriptionRow">
+			<ion-col class="padding0" size="12">
+				<label>Party Details:</label>
+				<p>{{eventDetails.event_description}}</p>
+			</ion-col>
+		</ion-row>
+		<ion-row class="padding0 partyDetailsRow">
+			<ion-col class="padding0" size="12">
+				<label>Age Limit:</label>
+				<p>{{eventDetails.age_limit}}</p>
+			</ion-col>
+		</ion-row>
+		<ion-row class="padding0 partyDetailsRow">
+			<ion-col class="padding0" size="12">
+				<label>Capacity:</label>
+				<p>{{eventDetails.capacity}}</p>
+			</ion-col>
+		</ion-row>
+		<ion-row class="padding0 partyDetailsRow">
+			<ion-col class="padding0" size="12">
+				<label>Rules:</label>
+				<p>{{eventDetails.rules}}</p>
+			</ion-col>
+		</ion-row>
+		<ion-row class="padding0 partyDetailsRow">
+			<ion-col class="padding0" size="12">
+				<label>Date:</label>
+				<p>{{eventDetails.date}}</p>
+			</ion-col>
+		</ion-row>
+		<ion-row class="padding0 partyDetailsRow">
+			<ion-col class="padding0" size="12">
+				<label>Time:</label>
+				<p>{{eventDetails.time}}</p>
+			</ion-col>
+		</ion-row>
+		<ion-row class="padding0 mapRow">
+			<div #map_canvas id="map"></div>
+		</ion-row>
+		<ion-row class="paddingTop0 bottomRow">
+			<ion-col size="12" class="text-center">
+				 <ion-button fill="solid" expand="block" mode="md" shape="solid" color="blue" class="btnForAll" routerLink="/edit-event/{{eventDetails.event_id}}" routerDirection="root">Update Party Details</ion-button>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

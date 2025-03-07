@@ -1,0 +1,76 @@
+<ion-header [class.blurContent]="isReviewModalOpen">
+  <ion-toolbar class="myToolbar" mode="md">
+    <ion-buttons slot="start" mode="md">
+      <ion-back-button defaultHref="/edit-event/{{eventId}}" mode="md" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-center">Accept Applicants</ion-title>
+    <div slot="end"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [class.blurContent]="isReviewModalOpen">
+	<ion-row class="padd15" *ngIf="applicantLists.length > 0">
+		<div class="sliderMainRow">
+	        <swiper
+	          [config]="sliderConfig"
+	          #sliderRow
+	        >
+	          <ng-template swiperSlide *ngFor="let applicant of applicantLists">
+	            <div class="sliderContainer">
+	              <img src="{{applicant.applicant_details.profile_pic}}">
+	            </div>
+	            <div class="sliderBottomContainer">
+		          	<ion-row class="sliderBottomTop">
+		          		<ion-col size="12"><h2>{{applicant.applicant_details.name}}, {{applicant.applicant_details.age}}</h2></ion-col>
+		          		<ion-col size="12"><label>{{applicant.applicant_details.gender}}</label></ion-col>
+		          		<ion-col size="12"><label>{{applicant.applicant_details.school_name}}</label></ion-col>
+		          	</ion-row>
+		          	<ion-row class="sliderBottomMiddle">
+		          		<ion-col size="6" class="leftMiddleBottom">
+		          			<label>Frat at {{applicant.applicant_details.school_name}}</label>
+		          		</ion-col>
+		          		<ion-col size="6" class="rightMiddleBottom">
+		          			<div>
+		          				<ion-icon name="starIcon" class="starIcon" slot="start"></ion-icon>
+		          				<label>Rating: <span>{{applicant.applicant_details.rating}}/5</span></label>
+		          			</div>
+		          		</ion-col>
+		          	</ion-row>
+		          	<ion-row class="sliderBottom">
+		          		<ion-col size="12"><label>{{applicant.applicant_details.bio}}</label></ion-col>
+		          	</ion-row>
+	          	</div>
+	          </ng-template>
+	        </swiper>
+	    </div>
+	</ion-row>
+	<ion-row class="bottomContainer" *ngIf="applicantLists.length > 0">
+		<ion-col size="12">
+			<span class="closeSpan" (click)="deleteApplicants()">
+				<span><ion-icon name="closeSpanIcon"></ion-icon></span>
+			</span>
+			<span class="checkSpan">
+				<span (click)="setReviewApplicantOpen(true)">
+					<ion-icon name="checkSpanIcon"></ion-icon>
+				</span>
+			</span>
+		</ion-col>
+	</ion-row>
+
+	<!-- Starting Modal Content -->
+	 <ion-modal id="review-applicant-modal" #modalReview [isOpen]="isReviewModalOpen" backdrop-dismiss="false" >
+      	<ng-template>
+	        <ion-content>
+	        	<ion-icon name="close-outline" class="modalClose" (click)="setReviewApplicantOpen(false)"></ion-icon>
+	          	<div class="modalContainerBox">
+	          		<h2>Review Applicants</h2>
+	          		<h1>You have viewed and selected all applicants</h1>
+	          		<p>Now review and make sure you approve of each one</p>
+	          		<ion-col size="12" class="text-center">
+						 <ion-button fill="solid" expand="block" mode="md" shape="solid" color="blue" class="btnForAll" (click)="goToReviewApplicant()">Review Applicants</ion-button>
+					</ion-col>
+	          	</div>
+	        </ion-content>
+      	</ng-template>
+    </ion-modal>
+</ion-content>

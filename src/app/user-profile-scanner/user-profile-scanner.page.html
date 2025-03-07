@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar class="myToolbar" mode="md">
+    <ion-buttons slot="start" mode="md" (click)="backToPrevious()">
+      <ion-back-button defaultHref="" mode="md" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-center">Your Profile</ion-title>
+    <div slot="end" class="text-center">
+    	<img src="../assets/icon/pen.png" class="PenIcon">
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-row class="padd15">
+		<div class="sliderMainRow">
+	        <swiper
+	          [config]="sliderConfig"
+	          #sliderRow
+	        >
+	          <ng-template swiperSlide>
+	            <div class="sliderContainer">
+	              <img src="../assets/images/user_profile_scanner.png">
+	            </div>
+	          </ng-template>
+	          <ng-template swiperSlide>
+	            <div class="sliderContainer">
+	              <img src="../assets/images/user_profile_scanner.png">
+	            </div>
+	          </ng-template>
+	          <ng-template swiperSlide>
+	            <div class="sliderContainer">
+	              <img src="../assets/images/user_profile_scanner.png">
+	            </div>
+	          </ng-template>
+	        </swiper>
+	        <div class="sliderBottomContainer">
+	          	<ion-row class="sliderBottomTop">
+	          		<ion-col size="12"><h2>Kappa Sigma, 30</h2></ion-col>
+	          		<ion-col size="12"><label>Male</label></ion-col>
+	          		<ion-col size="12"><label>SDSU</label></ion-col>
+	          	</ion-row>
+	          	<ion-row class="sliderBottomMiddle">
+	          		<ion-col size="6" class="leftMiddleBottom">
+	          			<label>Frat at SDSU</label>
+	          		</ion-col>
+	          		<ion-col size="6" class="rightMiddleBottom">
+	          			<div>
+	          				<ion-icon name="starIcon" class="starIcon" slot="start"></ion-icon>
+	          				<label>Rating: <span>4.5/5</span></label>
+	          			</div>
+	          		</ion-col>
+	          	</ion-row>
+          	</div>
+	    </div>
+	</ion-row>
+</ion-content>

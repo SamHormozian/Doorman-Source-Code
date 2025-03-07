@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="myToolbar" mode="md">
+    <ion-buttons slot="start" mode="md" (click)="backToPrevious()">
+      <ion-back-button defaultHref="" mode="md" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-center">Fraternity</ion-title>
+    <!-- <div slot="end" class="text-center" (click)="openFilter()">
+      <img src="../assets/icon/filter.png" class="FilterIcon">
+    </div> -->
+    <div slot="end"></div>
+  </ion-toolbar>
+  <ion-row class="filterRow" *ngIf="isFilter">
+  	<ion-col size="6" class="leftColmn" routerLink="/event-filter" routerDirection="root">
+  		<span class="leftSpan">
+  			<img src="../assets/icon/location.png">
+  		</span>
+  		<span class="rightSpan">Distance&nbsp;&nbsp;(Closest)</span>
+  	</ion-col>
+  	<ion-col size="6" class="rightColmn" routerLink="/event-filter" routerDirection="root">
+  		<span class="leftSpan">
+  			<img src="../assets/icon/calendar_black.png">
+  		</span>
+  		<span class="rightSpan">Date&nbsp;&nbsp;(Closest)</span>
+  	</ion-col>
+  </ion-row>
+</ion-header>
+
+<ion-content>
+	<ion-backdrop *ngIf="isFilter"></ion-backdrop>
+	<ion-grid class="padd20">
+		<ion-row class="mainRow" *ngFor="let ev of eventLists" routerLink="/event-details/{{ev.event_id}}" routerDirection="root">
+			<ion-col size="6" class="padding0 partyLeftContain">
+				<h3>{{ev.event_name}}</h3>
+				<div>
+					<span><img src="{{ev.host_profile_pic}}"></span>
+					<span class="bottomSpan">{{ev.host_name}}</span>
+				</div>
+			</ion-col>
+			<ion-col size="6" class="padding0 partyRightContain">
+				<div>
+					<label>Age Range: <span>{{ev.age_limit}}</span></label>
+					<label>Distance: <span>{{ev.distance}} mi</span></label>
+					<label>Capacity: <span>{{ev.capacity}}</span></label>
+				</div>
+			</ion-col>
+		</ion-row>
+    <ion-row *ngIf="eventLists.length == '0'">
+      <div class="noEventBarHead">
+          <div class="noEventBar">
+            <ion-col size="12">
+                <img src="../assets/images/no_data_calendar.png" class="noImg1">
+                <label>No Events</label>
+                <p>Check Back Soon</p>
+              </ion-col>
+          </div>
+        </div>
+    </ion-row>
+	</ion-grid>
+</ion-content>

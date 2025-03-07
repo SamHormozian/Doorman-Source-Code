@@ -1,0 +1,41 @@
+.container {
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 0 auto;
+}.profile-pic {
+  width: 100px;
+  height: 100px;
+}.outer {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100px !important; /* any size */
+  max-height: 100px !important; /* any size */
+  margin: auto;
+  border-radius: 100%;
+  position: relative;
+  background-size: 100% 100%;
+  // background-size: cover;
+  border: 2px solid #fff;
+}.inner {
+  background-color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  right: -8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}.camera-icon {
+  height: 18px;
+  width: 18px;
+  color: #000;
+}
+ion-select::part(icon) {
+  opacity: 1;
+  color: transparent;
+  background: url('/assets/icon/dropdown.png') no-repeat center;
+  background-size: 15px;
+}

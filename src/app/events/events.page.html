@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="myToolbar" mode="md">
+    <ion-buttons slot="start" mode="md" (click)="backToPrevious()">
+      <ion-back-button defaultHref="" mode="md" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-center">{{categoryName}}</ion-title>
+    <div slot="end" class="text-center" (click)="openFilter()" *ngIf="eventLists.length > 0">
+      <img src="../assets/icon/filter.png" class="FilterIcon">
+    </div>
+    <div slot="end" *ngIf="eventLists.length == '0'"></div>
+  </ion-toolbar>
+  <ion-row class="filterRow" *ngIf="isFilter">
+  	<ion-col size="6" class="leftColmn" routerLink="/event-filter/{{catID}}/1" routerDirection="root">
+  		<span class="leftSpan">
+  			<img src="../assets/icon/location.png">
+  		</span>
+  		<span class="rightSpan">Distance&nbsp;&nbsp;(Closest)</span>
+  	</ion-col>
+  	<ion-col size="6" class="rightColmn" routerLink="/event-filter/{{catID}}/2" routerDirection="root">
+  		<span class="leftSpan">
+  			<img src="../assets/icon/calendar_black.png">
+  		</span>
+  		<span class="rightSpan">Date&nbsp;&nbsp;(Closest)</span>
+  	</ion-col>
+  </ion-row>
+</ion-header>
+
+<ion-content>
+	<ion-backdrop *ngIf="isFilter"></ion-backdrop>
+	<ion-grid class="padd20">
+		<ion-row class="mainRow" *ngFor="let ev of eventLists">
+			<ion-col size="4">
+				<img src="{{ev.event_cover_image}}">
+			</ion-col>
+			<ion-col size="8" class="paddingLeft10 partyRightContain" routerLink="/event-details/{{ev.event_id}}" routerDirection="root">
+				<div class="">
+					<h2>
+						{{ev.event_name}}
+						<!-- <ion-icon name="editIcon" class="editIcon" slot="end"></ion-icon> -->
+					</h2>
+					<label class="partyLabelHead">
+						<ion-icon name="clockIcon" class="clockIcon" slot="start"></ion-icon>
+						{{ev.time}}
+					</label>
+					<label class="partyLabelHead marginBottom0 marginLeft3">
+						<ion-icon name="calendarIcon" class="calendarIcon" slot="start"></ion-icon>
+						{{ev.date}}
+					</label>
+				</div>
+			</ion-col>
+		</ion-row>
+		<ion-row *ngIf="eventLists.length == '0'">
+			<div class="noEventBarHead">
+		    	<div class="noEventBar">
+		    		<ion-col size="12">
+			          <img src="../assets/images/no_data_calendar.png" class="noImg1">
+			          <label>No Events</label>
+			          <p>Check Back Soon</p>
+			        </ion-col>
+		    	</div>
+		    </div>
+		</ion-row>
+	</ion-grid>
+</ion-content>

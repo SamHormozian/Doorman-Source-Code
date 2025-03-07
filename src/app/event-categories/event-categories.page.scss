@@ -1,0 +1,35 @@
+.mainRow{
+  padding: 15px 20px 20px 20px;
+
+  ion-col{
+    margin-bottom: 20px;
+  }
+  
+  .categoryContainer{
+    padding: 15px;
+    text-align: center;
+    width: 130px;
+    height: 100px;
+    background: #fff;
+    border-radius: 10px;
+    margin: 0px auto;
+
+    img{
+      width: 45px;
+    }
+
+    label{
+      text-align: center;
+      color: #000;
+      font-size: 13px;
+      font-weight: 600;
+      width: 100%;
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding-top: 3px;
+      letter-spacing: 0.5px;
+    }
+  }
+}

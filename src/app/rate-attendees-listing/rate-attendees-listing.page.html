@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar class="myToolbar" mode="md">
+    <ion-buttons slot="start" mode="md">
+      <ion-back-button defaultHref="/previous-event-hosted-details/{{eventId}}" mode="md" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-center">Rate Attendees</ion-title>
+    <div slot="end"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-row class="padd15" *ngIf="attendeesList.length > 0">
+		<div class="mainRow" *ngFor="let attendee of attendeesList">
+			<span class="leftImg">
+				<img src="{{attendee.attendee_details.profile_pic}}">
+			</span>
+			<span class="middleText">
+				<span>{{attendee.attendee_details.name}}</span>
+			</span>
+			<span class="rightImg">
+				<img src="../assets/images/rate_btn.png" routerLink="/rate-attendees/{{attendee.attendee_details.id}}/{{eventId}}" routerDirection="root">
+			</span>
+		</div>
+	</ion-row>
+</ion-content>
+

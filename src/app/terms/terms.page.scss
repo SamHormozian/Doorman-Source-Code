@@ -1,0 +1,26 @@
+.mainRow{
+	height: 100%;
+	overflow: hidden;
+
+	.innerRow{
+		background: #fff;
+		border-radius: 10px;
+		color: #000;
+		overflow-y: scroll;
+		height: 100%;
+
+		h2{
+			text-align: center;
+			text-decoration: underline;
+			font-size: 22px;
+			font-weight: 600;
+			margin-top: 10px;
+			margin-bottom: 20px;
+		}
+
+		p{
+			padding: 5px;
+			line-height: 1.3;
+		}
+	}
+}

@@ -1,0 +1,28 @@
+.topHeader{
+	width: 100%;
+	display: inline-block;
+	font-weight: 500;
+	font-size: 17px;
+}
+.otpBox{
+	display: inline-block;
+	/*width: 45px;*/
+	/*height: 55px;*/
+	margin: 7px;
+	border-radius: 8px;
+	--background: #fff;
+	--padding-start: 0px;
+	color: #000;
+	text-align: center;
+	padding: 5px 4px 2px 4px !important;
+}
+.otpLabel{
+	width: 100%;
+	font-size: 14px;
+	letter-spacing: 0.5px;
+}
+.resendLabel{
+	color: #60f4d2;
+	font-size: 18px;
+	font-weight: 600;
+}

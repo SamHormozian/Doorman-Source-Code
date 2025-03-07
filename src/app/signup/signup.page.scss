@@ -1,0 +1,33 @@
+.loginHeader{
+	font-size: 14px;
+	font-weight: 500;
+}
+.footerLabel{
+	color: #fff;
+	margin-bottom: 20px;
+	display: block;
+
+	span{
+		color: #60f4d2;
+	}
+}
+.privacyPolicy{
+	ion-checkbox{
+		vertical-align: middle;
+	}
+
+	ion-label{
+		padding-left: 20px;
+	  	width: 90%;
+	  	display: inline-block;
+	  	vertical-align: middle;
+	  	font-size: 13px;
+	}
+
+	span{
+		color: #60f4d2;
+	}
+}
+ion-checkbox{
+	--background: #fff !important;
+}

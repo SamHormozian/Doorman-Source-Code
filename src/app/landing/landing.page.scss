@@ -1,0 +1,33 @@
+.landingLogo{
+	height: 100%;
+
+	ion-col{
+		position: relative;
+		display: table;
+	}
+
+	div{
+		display: table-cell;
+		vertical-align: middle;
+
+		img{
+			height: 160px;
+		}
+	}
+}
+.landingHeading{
+	font-size: 25px;
+	font-weight: 900;
+	padding-top: 50px;
+}
+.btnForSignin{
+	background: none !important;
+	border: 1px solid #fff !important;
+	color: #fff !important;
+	--box-shadow: none;
+}
+.footerPart{
+	position: absolute;
+	width: 100%;
+	bottom: 25px;
+}

@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar class="myToolbar" mode="md">
+    <ion-buttons slot="start" mode="md" (click)="backToPrevious()">
+      <ion-back-button defaultHref="" mode="md" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-center">Your Profile Pictures</ion-title>
+    <div slot="end" class="text-center"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-row class="padd10">
+		<div class="ImageRow imageBg" *ngFor="let user_image of userImages" style="background: url({{user_image.image}})">
+			<span (click)="deleteUserImage(user_image.id)"><img src="../assets/icon/cross.png"></span>
+		</div>
+		<div class="ImageRow">
+			<span (click)="presentActionSheet()"><img src="../assets/icon/plus.png"></span>
+		</div>
+	</ion-row>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-row class="padd10">
+	<ion-col size="12" class="text-center">
+		 <ion-button fill="solid" expand="block" mode="md" shape="solid" color="blue" class="btnForAll" (click)="doSubmitImages()">Submit</ion-button>
+	</ion-col>
+</ion-row>
+</ion-footer>

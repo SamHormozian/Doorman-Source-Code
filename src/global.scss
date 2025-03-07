@@ -1,0 +1,328 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@import "~swiper/scss";
+@import "~swiper/scss/autoplay";
+@import "~swiper/scss/keyboard";
+@import "~swiper/scss/pagination";
+@import "~swiper/scss/scrollbar";
+@import "~swiper/scss/zoom";
+
+form{
+	width: 100%;
+
+	.formError{
+		color: red !important;
+		width: 100%;
+		display: inline-block;
+		font-size: 14px;
+		letter-spacing: 0.5px;
+		padding-top: 6px;
+		padding-left: 5px;
+	}
+}
+.marginLeft0{
+	margin-left: 0px !important;
+}
+.marginLeft3{
+	margin-left: 3px !important;
+}
+.marginRight0{
+	margin-right: 0px !important;
+}
+.marginTop0{
+	margin-top: 0px !important;
+}
+.marginBottom0{
+	margin-bottom: 0px !important;
+}
+.paddingLeft0{
+	padding-left: 0px !important;
+}
+.paddingLeft10{
+	padding-left: 10px !important;
+}
+.paddingLeft15{
+	padding-left: 15px !important;
+}
+.paddingRight0{
+	padding-right: 0px !important;
+}
+.paddingRight10{
+	padding-right: 10px !important;
+}
+.paddingTop0{
+	padding-top: 0px !important;
+}
+.paddingTop10{
+	padding-top: 10px !important;
+}
+.paddingTop5{
+	padding-top: 5px !important;
+}.paddingTop15{
+	padding-top: 15px !important;
+}
+.paddingBottom0{
+	padding-bottom: 0px !important;
+}
+.padding0{
+	padding: 0px !important;
+}
+.paddingBottom5{
+	padding-bottom: 5px !important;
+}
+.paddingBottom10{
+	padding-bottom: 10px !important;
+}
+.paddingBottom15{
+	padding-bottom: 15px !important;
+}
+.paddingBottom20{
+	padding-bottom: 20px !important;
+}
+.text-center{
+	text-align: center;
+}
+.text-right{
+	text-align: right;
+}
+.btnForAll {
+	border-radius: 15px;
+	background: #60f4d2 !important;
+	height: 65px;
+	color: #000;
+	text-transform: capitalize;
+	font-weight: 600;
+	font-size: 19px;
+	--box-shadow: none;
+	letter-spacing: 0px;
+}
+.padd10{
+	padding: 10px;
+}
+.padd20{
+	padding: 20px;
+}
+.padd15{
+	padding: 15px;
+}
+.mTop10{
+	margin-top: 10px;
+}
+.mTop20{
+	margin-top: 20px;
+}
+.mBotm20{
+	margin-bottom: 20px;
+}
+.mBotm10{
+	margin-bottom: 10px;
+}
+.mBotm5{
+	margin-bottom: 5px;
+}
+ion-header{
+	/*border-bottom: 1px solid #9b9b9bb3;*/
+	border-bottom: 1px solid #404040;
+	background: #000;
+	padding: 15px 0px 0px 0px;
+}
+/*.myToolbar{
+	border-bottom: 1px solid #404040;
+}*/
+.myToolbar div{
+	width: 48px;
+	margin-right: 5px;
+}
+.formRow{
+	padding: 15px;
+
+	ion-list{
+		width: 100%;
+		background: none;
+	}
+}
+.formInputRow{
+	/*margin-bottom: 20px;*/
+
+	label{
+		font-size: 14px;
+		letter-spacing: 0.5px;
+		margin-bottom: 5px;
+		display: inline-block;
+	}
+
+	ion-input
+	{
+		background: #fff;
+		height: 50px;
+		border-radius: 10px;
+		color: #000;
+		margin-top: 5px;
+		/*padding-left: 10px;*/
+		padding-right: 10px;
+		--padding-start: 15px;
+	}
+	ion-select{
+		background: #fff;
+		height: 50px;
+		border-radius: 10px;
+		color: #000;
+		margin-top: 5px;
+		/*padding-left: 10px;*/
+		padding-right: 10px;
+		--padding-start: 15px;
+	}
+	ion-textarea{
+		background: #fff;
+		border-radius: 10px;
+		color: #000;
+		margin-top: 5px;
+		/*padding-left: 10px;*/
+		padding-right: 10px;
+		--padding-start: 15px;
+	}
+}
+.alert-radio-group{
+  border-top: 1px solid #d0d0d0 !important;
+  border-bottom: 1px solid #d0d0d0 !important;
+}
+.alert-wrapper{
+  --background: #fff !important;
+}
+.alert-radio-label{
+  color: #000 !important;
+}
+.eventSliderBar .swiper-pagination-bullet{
+	width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 7px));
+	height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 7px));
+}
+.eventSliderBar .swiper-pagination{
+	text-align: left;
+	position: absolute;
+	bottom: 0px;
+	padding-left: 10px;
+}
+.eventSliderBar .swiper{
+	height: 100%
+}
+.categorySliderBar .swiper-slide{
+	margin-right: 10px !important;
+	width: 100px !important;
+	height: 100px;
+}
+.hostSliderBar .swiper-slide{
+	margin-right: 15px !important;
+	width: 160px !important;
+}
+.sliderMainRow .swiper-slide{
+	width: 100% !important;
+}
+.sliderMainRow .swiper-pagination{
+	position: absolute;
+	bottom: 230px;
+	/*top: 240px;*/
+}.sliderOther .swiper-pagination{
+	bottom: 30px !important;
+	/*top: 240px;*/
+}
+.sliderMainRow .swiper-pagination-bullet{
+	width: 50px;
+	height: 2px;
+	box-shadow: none;
+	border-radius: 20px;
+	background: #b8556a;
+	opacity: 1;
+}
+.sliderMainRow .swiper-pagination-bullet-active{
+	background: #fff;
+}
+/*.upcomingEvewntSliderMain .swiper-slide{
+	margin-right: 15px !important;
+	width: 90% !important;
+	display: table;
+	position: relative;
+}*/
+.ProfilePic{
+  height: 35px;
+  width: 35px;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+.customInputIcon{
+	position: absolute;
+	right: 10px;
+}
+ion-content{
+	/*--ion-background-color: linear-gradient(180deg, #000000 0%, #6F6F6F 64.58%, #6F6F6F);*/
+	--ion-background-color: linear-gradient(180deg, #000000 2%, #4a4a4a 68.58%, #6F6F6F);
+}
+ion-footer{
+	background-color: #6F6F6F !important;
+}
+ion-tab-bar{
+	/*padding: 10px;*/
+	min-height: 85px;
+
+	ion-icon{
+		font-size: 40px;
+	}
+}
+ion-title{
+	font-weight: 900;
+	font-size: 17px;
+	word-spacing: -2px;
+}
+.calendarIcon{
+  background-image: url('/assets/icon/calendar.png');
+  background-size: 100% 100%;
+}
+.clockIcon{
+  background-image: url('/assets/icon/clock.png');
+  background-size: 100% 100%;
+}
+a[href^="http://maps.google.com/maps"],
+a[href^="https://maps.google.com/maps"],
+a[href^="https://www.google.com/maps"] {
+    display: none !important;
+}
+.gm-bundled-control .gmnoprint {
+    display: block;
+}
+.gmnoprint:not(.gm-bundled-control) {
+    display: none;
+}
+ion-loading{
+	.loading-wrapper{
+		border-radius: 10px !important;
+		padding: 15px 20px !important;
+		text-shadow: 0px 0px 1px #000;
+	}
+}
+.header-ios ion-toolbar{
+  padding-top: env(safe-area-inset-top);
+}

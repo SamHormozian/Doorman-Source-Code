@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar class="myToolbar" mode="md">
+    <ion-buttons slot="start" mode="md">
+      <ion-back-button defaultHref="/tabs/tabs/home" mode="md" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-center">User Agreement</ion-title>
+    <div slot="end"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-row class="padd15 mainRow">
+		<ion-col size="12" class="innerRow">
+			<h2>User Agreement For Doorman</h2>
+			<p [innerHtml]="contentData.agreement"></p>
+		</ion-col>
+	</ion-row>
+</ion-content>

@@ -1,0 +1,214 @@
+<ion-header [translucent]="true" [class.blurContent]="isEditEventModalOpen || isDeleteEventModalOpen">
+  <ion-toolbar class="myToolbar" mode="md">
+    <ion-buttons slot="start" mode="md" (click)="backToPrevious()">
+      <ion-back-button defaultHref="" mode="md" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-center">{{eventDetails.event_name}}</ion-title>
+    <div slot="end" class="text-center">
+      <img src="../assets/icon/scanner.png" class="ScannerIcon">
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [class.blurContent]="isEditEventModalOpen || isDeleteEventModalOpen">
+	<ion-row class="applicantBtnRow">
+	  	<ion-col size="6" class="accept_applicant" routerLink="/accept-applicant/{{eventId}}" routerDirection="root">
+	  		<div>Accept Applicants</div>
+	  	</ion-col>
+	  	<ion-col size="6" class="manage_applicant" routerLink="/manage-applicant/{{eventId}}" routerDirection="root">
+	  		<div >Manage Applicants</div>
+	  	</ion-col>
+	  </ion-row>
+	<ion-row class="mTop20">
+		<ion-col size="12" class="text-center">
+			<div class="container">
+			     <div>
+			     	<img class="prof-img" src="{{eventDetails.host_profile_pic}}">
+			     </div>
+			  </div>
+		</ion-col>
+	</ion-row>
+	<form [formGroup]="editEventForm" (ngSubmit)="doSubmitForm()" novalidate>
+		<ion-row class="paddingTop0 formRow">
+			<ion-list mode="md" class="" lines="none">
+				<div class="formInputRow mBotm20 paddingTop10">
+					<label>Host</label>
+			  		<ion-input type="text" readonly formControlName="event_host_name" placeholder="Host name" [value]="eventDetails.host_name"></ion-input>
+				</div>
+				<div class="formInputRow mBotm20 paddingTop10">
+					<label>Event Type</label>
+					<ion-input type="text" placeholder="Select event type" readonly (click)="showEventType()" formControlName="event_category" [value]="eventDetails.category_name">
+						<ion-icon name="dropDownIcon" slot="end" class="customInputIcon dropDownIcon"></ion-icon>
+					</ion-input>
+					<div class="eventTypeBar" *ngIf="isEventType">
+						<ul>
+							<li *ngFor="let category of categoryLists" (click)="setEventType(category.cat_id, category.category_name)">{{category.category_name}}</li>
+						</ul>
+					</div>
+					<span class="formError" *ngIf="isSubmitted && errorControl.event_category.errors?.required">
+						Event type is required.
+					</span>
+				</div>
+				<div class="formInputRow mBotm20">
+					<label>Description of event</label>
+			  		<ion-textarea rows="6" cols="6" placeholder="Your text here..." [value]="eventDetails.event_description" formControlName="event_description"></ion-textarea>
+			  		<span class="formError" *ngIf="isSubmitted && errorControl.event_description.errors?.required">
+						Event description is required.
+					</span>
+				</div>
+				<div class="formInputRow mBotm20 eventCover">
+					<ion-row>
+						<ion-col size="12" class="mBotm5 padding0">
+							<label>Event cover image</label>
+						</ion-col>
+						<ion-col size="6" class="leftCover">
+							<img src="../assets/images/party1.jpg" class="eventCoverImage" *ngIf="imageSourcePath =='' && (eventDetails.event_cover_image == '' || eventDetails.event_cover_image == 'null')">
+							<img src="{{imageSourcePath}}" class="eventCoverImage" *ngIf="imageSourcePath !=''">
+							<img src="{{eventDetails.event_cover_image}}" class="eventCoverImage" *ngIf="imageSourcePath =='' && (eventDetails.event_cover_image !='' || eventDetails.event_cover_image != 'null')">
+						</ion-col>
+						<ion-col size="6" class="rightCover padding0">
+							<div>
+								<ion-button fill="solid" expand="block" mode="md" shape="solid" color="blue" class="uploadBtn" (click)="presentActionSheet()">
+									<ion-icon name="cameraIcon" slot="start" class="cameraIcon"></ion-icon>
+									Upload Image
+								</ion-button>
+
+								<ion-button fill="solid" expand="block" mode="md" shape="solid" color="blue" class="deleteBtn" (click)="deleteEventCover()">
+									<ion-icon name="trashIcon" slot="start" class="trashIcon"></ion-icon>
+									Delete Image
+								</ion-button>
+							</div>
+						</ion-col>
+					</ion-row>
+				</div>
+				<div class="formInputRow mBotm20 ageHeight">
+					<ion-row>
+						<ion-col size="6" class="mBotm5 padding0">
+							<label>Age Limit</label>
+						</ion-col>
+						<ion-col size="6" class="mBotm5 padding0 text-right">
+							<label>18-100+</label>
+						</ion-col>
+						<ion-col size="12" class="padding0">
+							<ion-range min="18" max="100" [pinFormatter]="customFormatter" [pin]="true" dualKnobs="true" [value]="{ lower: eventDetails.lower_age_limit, upper: eventDetails.upper_age_limit}" (ionChange)="ageLimit($event)"></ion-range>
+						</ion-col>
+					</ion-row>
+				</div>
+				<div class="formInputRow mBotm20">
+					<label>Capacity</label>
+			  		<ion-row>
+			  			<!-- <ion-col size="1" class="padding0">
+			  				<label class="capacityLabel">0/</label>
+			  			</ion-col> -->
+			  			<ion-col size="12" class="padding0"><ion-input type="text" placeholder="Capacity" [value]="eventDetails.capacity" formControlName="event_capacity"></ion-input></ion-col>
+			  			<span class="formError" *ngIf="isSubmitted && errorControl.event_capacity.errors?.required">
+							Capacity is required.
+						</span>
+			  		</ion-row>
+				</div>
+				<div class="formInputRow mBotm20">
+					<label>Rules</label>
+			  		<ion-textarea rows="2" cols="6" placeholder="Your rules here..." [value]="eventDetails.rules" formControlName="event_rules"></ion-textarea>
+			  		<span class="formError" *ngIf="isSubmitted && errorControl.event_rules.errors?.required">
+						Rules is required.
+					</span>
+				</div>
+				<div class="formInputRow mBotm20">
+					<ion-row class="dateTimeBar">
+						<ion-col size="6">
+							<label>Date (Start)</label>
+			  				<ion-input type="{{startDate}}" placeholder="00/00/0000" (ionFocus)="changeStartDateType()" formControlName="event_start_date" [value]="eventDetails.start_date">
+			  					<ion-icon name="calendarIcon" slot="end" class="customInputIcon calendarIcon"></ion-icon>
+			  				</ion-input>
+			  				<span class="formError" *ngIf="isSubmitted && errorControl.event_start_date.errors?.required">
+								Start date is required.
+							</span>
+						</ion-col>
+						<ion-col size="6" class="paddingRight0">
+							<label>Date (End)</label>
+			  				<ion-input type="{{endDate}}" placeholder="00/00/0000" (ionFocus)="changeEndDateType()" formControlName="event_end_date" [value]="eventDetails.end_date">
+			  					<ion-icon name="calendarIcon" slot="end" class="customInputIcon calendarIcon"></ion-icon>
+			  				</ion-input>
+			  				<span class="formError" *ngIf="isSubmitted && errorControl.event_end_date.errors?.required">
+								End date is required.
+							</span>
+						</ion-col>
+					</ion-row>
+				</div>
+				<div class="formInputRow mBotm20">
+					<ion-row class="dateTimeBar">
+						<ion-col size="6">
+							<label>Time (Start)</label>
+			  				<ion-input type="{{startTime}}" placeholder="00:00" (ionFocus)="changeStartTimeType()" formControlName="event_start_time" [value]="eventDetails.start_time">
+			  					<ion-icon name="clockIcon" class="customInputIcon clockIcon" slot="end"></ion-icon>
+			  				</ion-input>
+			  				<span class="formError" *ngIf="isSubmitted && errorControl.event_start_time.errors?.required">
+								Start time is required.
+							</span>
+						</ion-col>
+						<ion-col size="6" class="paddingRight0">
+							<label>Time (End)</label>
+			  				<ion-input type="{{endTime}}" placeholder="00:00" (ionFocus)="changeEndTimeType()" formControlName="event_end_time" [value]="eventDetails.end_time">
+			  					<ion-icon name="clockIcon" class="customInputIcon clockIcon" slot="end"></ion-icon>
+			  				</ion-input>
+			  				<span class="formError" *ngIf="isSubmitted && errorControl.event_end_time.errors?.required">
+								End time is required.
+							</span>
+						</ion-col>
+					</ion-row>
+				</div>
+				<div class="formInputRow">
+					<label>Location</label>
+			  		<ion-input type="text" placeholder="Location details..." formControlName="event_location" [value]="eventDetails.location"></ion-input>
+			  		<span class="formError" *ngIf="isSubmitted && errorControl.event_location.errors?.required">
+						Location is required.
+					</span>
+				</div>
+			</ion-list>
+		</ion-row>
+		<ion-row class="paddingTop0 padd10">
+			<ion-col size="12" class="text-center">
+				 <ion-button fill="solid" expand="block" mode="md" shape="solid" color="blue" class="btnForAll" type="submit">Update Event</ion-button>
+			</ion-col>
+		</ion-row>
+	</form>
+	<ion-row class="paddingTop0 padd10 mBotm20 deleteEvent">
+		<ion-col size="12" class="text-center">
+			 <ion-button fill="solid" expand="block" mode="md" shape="solid" color="danger" class="btnForAll" (click)="setDeleteEventOpen(true)">Delete Event</ion-button>
+		</ion-col>
+	</ion-row>
+
+	 <!-- Starting Modal Content -->
+	 <ion-modal id="edit-event-modal" #modalEdit [isOpen]="isEditEventModalOpen" backdrop-dismiss="false" >
+      	<ng-template>
+	        <ion-content>
+	        	<ion-icon name="close-outline" class="modalClose" (click)="setEditEventOpen(false)"></ion-icon>
+	          	<div class="modalContainerBox">
+	          		<h2>Edit Event</h2>
+	          		<h1>Would you like to save the changes made to this event?</h1>
+	          		<p>A message will be sent to all attendees of the change</p>
+	          		<ion-col size="12" class="text-center">
+						 <ion-button fill="solid" expand="block" mode="md" shape="solid" color="blue" class="btnForAll" (click)="doUpdateEvent()">Edit Event</ion-button>
+					</ion-col>
+	          	</div>
+	        </ion-content>
+      	</ng-template>
+    </ion-modal>
+
+    <!-- Starting Modal Content -->
+	 <ion-modal id="delete-event-modal" #modalDelete [isOpen]="isDeleteEventModalOpen" backdrop-dismiss="false">
+      	<ng-template>
+	        <ion-content>
+	        	<ion-icon name="close-outline" class="modalClose" (click)="setDeleteEventOpen(false)"></ion-icon>
+	          	<div class="modalContainerBox">
+	          		<h2>Delete Event</h2>
+	          		<h1>Are you sure you would like to delete this event?</h1>
+	          		<p>A message will be sent to all attendees of the event cancelation</p>
+	          		<ion-col size="12" class="text-center deleteEvent">
+						 <ion-button fill="solid" expand="block" mode="md" shape="solid" color="danger" class="btnForAll" (click)="deleteEvent()">Delete Event</ion-button>
+					</ion-col>
+	          	</div>
+	        </ion-content>
+      	</ng-template>
+    </ion-modal>
+</ion-content>

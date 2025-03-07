@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar class="myToolbar" mode="md">
+    <ion-buttons slot="start" mode="md">
+      <ion-back-button defaultHref="/tabs/tabs/settings" mode="md" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-center">Notification Settings</ion-title>
+    <div slot="end"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-row class="headingRow">
+		<ion-col size="12" class="padding0">
+			<h2>Push Notifications</h2>
+		</ion-col>
+	</ion-row>
+	<ion-row class="toggleRow">
+		<ion-list>
+		  <ion-item>
+		    <ion-label>Accepted to Event</ion-label>
+		    <ion-toggle mode="md" class="toggle" checked="{{is_event_accept_push}}" (ionChange)="changeUserNotification($event, 'is_event_accept_push')"></ion-toggle>
+		  </ion-item>
+		  <ion-item>
+		    <ion-label>Event Has Been Editted</ion-label>
+		    <ion-toggle mode="md" checked="{{is_event_edit_push}}" (ionChange)="changeUserNotification($event, 'is_event_edit_push')"></ion-toggle>
+		  </ion-item>
+		  <ion-item>
+		    <ion-label>Event Has Been Deleted</ion-label>
+		    <ion-toggle mode="md" checked="{{is_event_delete_push}}" (ionChange)="changeUserNotification($event, 'is_event_delete_push')"></ion-toggle>
+		  </ion-item> 
+		  <ion-item>
+		    <ion-label>You Have Been Removed From an Event</ion-label>
+		    <ion-toggle mode="md" checked="{{is_delete_from_event_push}}" (ionChange)="changeUserNotification($event, 'is_delete_from_event_push')"></ion-toggle>
+		  </ion-item>
+		  <ion-item>
+		    <ion-label>Event has been added to the area <span class="note"><br />Note: "area" is 10 miles radius</span></ion-label>
+		    <ion-toggle mode="md" checked="{{is_event_add_push}}" (ionChange)="changeUserNotification($event, 'is_event_add_push')"></ion-toggle>
+		  </ion-item>
+		</ion-list>
+	</ion-row>
+	<ion-row class="headingRow">
+		<ion-col size="12" class="padding0">
+			<h2>Emails</h2>
+		</ion-col>
+	</ion-row>
+	<ion-row class="toggleRow">
+		<ion-list>
+		  <ion-item>
+		    <ion-label>Accepted to Event</ion-label>
+		    <ion-toggle mode="md" class="toggle" checked="{{is_event_accept_email}}" (ionChange)="changeUserNotification($event, 'is_event_accept_email')"></ion-toggle>
+		  </ion-item>
+		  <ion-item>
+		    <ion-label>Event Has Been Editted</ion-label>
+		    <ion-toggle mode="md" checked="{{is_event_edit_email}}" (ionChange)="changeUserNotification($event, 'is_event_edit_email')"></ion-toggle>
+		  </ion-item>
+		  <ion-item>
+		    <ion-label>Event Has Been Deleted</ion-label>
+		    <ion-toggle mode="md" checked="{{is_event_delete_email}}" (ionChange)="changeUserNotification($event, 'is_event_delete_email')"></ion-toggle>
+		  </ion-item> 
+		  <ion-item>
+		    <ion-label>You Have Been Removed From an Event</ion-label>
+		    <ion-toggle mode="md" checked="{{is_delete_from_event_email}}" (ionChange)="changeUserNotification($event, 'is_delete_from_event_email')"></ion-toggle>
+		  </ion-item>
+		  <ion-item>
+		    <ion-label>Event has been added to the area <span class="note"><br />Note: "area" is 10 miles radius</span></ion-label>
+		    <ion-toggle mode="md" checked="{{is_event_add_email}}" (ionChange)="changeUserNotification($event, 'is_event_add_email')"></ion-toggle>
+		  </ion-item>
+		</ion-list>
+	</ion-row>
+</ion-content>

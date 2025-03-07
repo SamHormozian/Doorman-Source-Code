@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar class="myToolbar" mode="md">
+    <ion-buttons slot="start" mode="md" (click)="backToPrevious()">
+      <ion-back-button defaultHref="" mode="md" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-center">Host Profile</ion-title>
+    <div slot="end"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-row class="padd15">
+		<div class="sliderMainRow sliderOther">
+		 	<swiper
+	          [config]="sliderConfig"
+	          #sliderRow
+	          *ngIf="hostImages.length > 0"
+	        >
+	          <ng-template swiperSlide *ngFor="let user_image of hostImages">
+	            <div class="sliderContainer">
+	              <img src="{{user_image.image}}">
+	            </div>
+	          </ng-template>
+	        </swiper>
+	        <swiper
+	          [config]="sliderConfig"
+	          #sliderRow
+	          *ngIf="hostImages.length == '0'"
+	        >
+	          <ng-template swiperSlide>
+	            <div class="sliderContainer">
+	              <img src="{{hostDetails.profile_pic}}">
+	            </div>
+	          </ng-template>
+	        </swiper>
+	        <div class="sliderBottomContainer">
+	          	<ion-row class="sliderBottomTop">
+	          		<ion-col size="12"><h2>{{hostDetails.name}}, {{hostDetails.age}}</h2></ion-col>
+	          		<ion-col size="12"><label>{{hostDetails.gender}}</label></ion-col>
+	          		<ion-col size="12"><label>{{hostDetails.school_name}}</label></ion-col>
+	          	</ion-row>
+	          	<ion-row class="sliderBottomMiddle">
+	          		<ion-col size="6" class="leftMiddleBottom">
+	          			<label>{{hostDetails.bio}}</label>
+	          		</ion-col>
+	          		<ion-col size="6" class="rightMiddleBottom">
+	          			<div>
+	          				<ion-icon name="starIcon" class="starIcon" slot="start"></ion-icon>
+	          				<label>Rating: <span>{{hostDetails.rating}}/5</span></label>
+	          			</div>
+	          		</ion-col>
+	          	</ion-row>
+          	</div>
+	    </div>
+	</ion-row>
+	<ion-row class="bottomContainer">
+		<ion-col size="12" class="text-center">
+			 <ion-button fill="solid" expand="block" mode="md" shape="solid" color="blue" class="btnForAll" routerLink="/rate-host/{{host_id}}/{{isPageType}}" routerDirection="root">Rate Host</ion-button>
+		</ion-col>
+	</ion-row>
+</ion-content>

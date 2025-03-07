@@ -1,0 +1,26 @@
+.InnerRow{
+	width: 300px;
+	margin: 0px auto;
+	text-align: center;
+	padding-top: 60px;
+
+	span{
+		display: inline-block;
+		text-align: center;
+		margin-right: 15px;
+		margin-bottom: 30px;
+
+		img{
+			height: 48px;
+		}
+
+		label{
+			display: block;
+			font-size: 12px;
+		}
+	}
+
+	.customHeight{
+		height: 42px !important;
+	}
+}

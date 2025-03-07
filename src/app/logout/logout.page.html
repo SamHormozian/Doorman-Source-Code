@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar class="myToolbar" mode="md">
+    <ion-buttons slot="start" mode="md">
+      <ion-back-button defaultHref="/tabs/tabs/home" mode="md" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-center">Log Out</ion-title>
+    <div slot="end"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-row class="padd15 mainRow">
+		<ion-col size="12" class="text-center topImgRow">
+			<img src="../assets/images/logo_new.png">
+		</ion-col>
+	</ion-row>
+</ion-content>
+<ion-footer>
+	<ion-row class="padd15">
+		<ion-col size="12" class="text-center footerText">
+			<p>You're about to log out. Try not to lose access to the phone number or email you signed up with <ion-icon name="happy" slot="end"></ion-icon></p>
+		</ion-col>
+		<ion-col size="12" class="text-center">
+			 <ion-button fill="solid" expand="block" mode="md" shape="solid" color="blue" class="btnForAll" (click)="logout()">Log Out</ion-button>
+		</ion-col>
+	</ion-row>
+</ion-footer>

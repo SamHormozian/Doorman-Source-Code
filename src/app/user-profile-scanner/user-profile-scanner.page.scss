@@ -1,0 +1,163 @@
+.PenIcon{
+  height: 26px;
+  vertical-align: middle;
+}
+.sliderMainRow{
+	width: 100%;
+	border: 2px solid #fff;
+	border-radius: 20px;
+
+	.sliderContainer{
+		width: 100%;
+
+		img{
+			object-fit: contain;
+			border-radius: 18px 18px 0px 0px;
+			width: 100%;
+		}
+	}
+
+	.sliderBottomContainer{
+		padding: 15px 20px 15px 20px;
+		margin-top: -13px !important;
+		background: #fff;
+		border-radius: 13px 13px 18px 18px;
+		z-index: 9999999;
+		position: relative;
+		color: #000;
+
+		ion-row{
+			padding: 0px;
+		}
+		ion-col{
+			padding: 0px;
+		}
+
+		.sliderBottomTop{
+			h2{
+				font-weight: 600;
+				margin-top: 0px;
+				margin-bottom: 5px;
+				letter-spacing: 0.5px;
+			}
+			label{
+				font-size: 17px;
+				margin-bottom: 5px;
+			}
+		}
+
+		.sliderBottomMiddle{
+			margin-top: 10px;
+			border-top: 1px solid #e4e4e4;
+			border-bottom:  1px solid #e4e4e4;
+			height: 45px;
+
+			ion-col{
+				position: relative;
+				display: table;
+			}
+
+			.leftMiddleBottom{
+				border-right: 2px solid #e4e4e4;
+
+				label{
+					font-size: 17px;
+					width: 100%;
+					display: table-cell;
+					vertical-align: middle;
+				}
+			}
+
+			.rightMiddleBottom{
+				div{
+					display: table-cell;
+					vertical-align: middle;
+					text-align: center;
+				}
+				.starIcon{
+					background: url('/assets/icon/star.png') no-repeat center;
+				  	background-size: 100%;
+				  	font-size: 18px;
+					vertical-align: middle;
+					margin-right: 8px;
+				}
+
+				label{
+					font-size: 16px;
+					font-weight: 600;
+					vertical-align: middle;
+
+					span{
+						font-size: 17px;
+						font-weight: 500;
+					}
+				}
+			}
+		}
+		.sliderBottom{
+			margin-top: 20px;
+			label{
+				font-size: 17px;
+			}
+		}
+		
+	}
+
+	.scanner{
+		position: absolute;
+		top: 5px;
+		right: 5px;
+
+		img{
+			height: 36px;
+		}
+	}
+}
+
+.blurContent{
+	filter: blur(8px);
+}
+
+ion-modal{
+  --width: fit-content;
+  --min-width: 90%;
+  --height: fit-content;
+  --min-height: 330px;
+  --border-radius: 15px;
+
+  /*ion-backdrop{
+  	background: linear-gradient(180deg, #000 10%, #4a4a4a 68.58%, #6F6F6F);
+  }*/
+
+  ion-content{
+  	--background: #fff;
+  }
+
+	.modalClose{
+	  	position: absolute;
+		color: #000;
+		right: 10px;
+		font-weight: 900;
+		font-size: 29px;
+		top: 10px;
+	}
+
+  .modalContainerBox{
+  	padding: 15px 20px 0px 20px;
+  	width: 100%;
+  	text-align: center;
+  	color: #000;
+  	h1{
+  		font-size: 18px;
+  		margin-bottom: 20px;
+  	}
+
+  	h2{
+  		margin-top: 30px;
+		margin-bottom: 25px;
+		font-weight: 600;
+		font-size: 20px;
+		letter-spacing: 0.5px;
+  	}
+  }
+}

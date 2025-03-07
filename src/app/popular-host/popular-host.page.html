@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="myToolbar" mode="md">
+    <ion-buttons slot="start" mode="md">
+      <ion-back-button defaultHref="/tabs/tabs/home" mode="md" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-center">Popular Hosts</ion-title>
+    <!-- <div slot="end" class="text-center" (click)="openFilter()">
+      <img src="../assets/icon/filter.png" class="FilterIcon">
+    </div> -->
+    <div slot="end"></div>
+  </ion-toolbar>
+  <ion-row class="filterRow" *ngIf="isFilter">
+  	<ion-col size="6" class="leftColmn">
+  		<span class="leftSpan">
+  			<img src="../assets/icon/location.png">
+  		</span>
+  		<span class="rightSpan">Distance&nbsp;&nbsp;(Closest)</span>
+  	</ion-col>
+  	<ion-col size="6" class="rightColmn" routerLink="/event-filter" routerDirection="root">
+  		<span class="leftSpan">
+  			<img src="../assets/icon/calendar_black.png">
+  		</span>
+  		<span class="rightSpan">Date&nbsp;&nbsp;(Closest)</span>
+  	</ion-col>
+  </ion-row>
+</ion-header>
+
+<ion-content>
+	<ion-backdrop *ngIf="isFilter"></ion-backdrop>
+	<ion-grid class="padd20">
+		<ion-row class="mainRow" *ngFor="let host of hostList" routerLink="/host-profile/{{host.host_id}}/1" routerDirection="root">
+			<ion-col size="4">
+				<img src="{{host.profile_pic}}">
+			</ion-col>
+			<ion-col size="8" class="paddingLeft10 partyRightContain" routerLink="/host-profile/{{host.host_id}}/1" routerDirection="root">
+				<div class="">
+					<h2>
+						{{host.name}}
+					</h2>
+					<label class="partyLabelHead">
+						{{host.age}}
+					</label>
+					<label class="partyLabelHead">
+						{{host.gender}}
+					</label>
+					<label class="partyLabelHead text-right">
+						Rating:
+						<span *ngIf="host.rating == '0'"><img src="../assets/icon/star_inactive.png"></span>
+						<span *ngIf="host.rating >= '1'"><img src="../assets/icon/star_active.png"></span>
+						<span *ngIf="host.rating == '0' || host.rating < '2'"><img src="../assets/icon/star_inactive.png"></span>
+						<span *ngIf="host.rating >= '2'"><img src="../assets/icon/star_active.png"></span>
+						<span *ngIf="host.rating == '0' || host.rating < '3'"><img src="../assets/icon/star_inactive.png"></span>
+						<span *ngIf="host.rating >= '3'"><img src="../assets/icon/star_active.png"></span>
+						<span *ngIf="host.rating == '0' || host.rating < '4'"><img src="../assets/icon/star_inactive.png"></span>
+						<span *ngIf="host.rating >= '4'"><img src="../assets/icon/star_active.png"></span>
+						<span *ngIf="host.rating == '0' || host.rating < '5'"><img src="../assets/icon/star_inactive.png"></span>
+						<span *ngIf="host.rating >= '5'"><img src="../assets/icon/star_active.png"></span>
+					</label>
+				</div>
+			</ion-col>
+		</ion-row>
+		<div class="noHostBar" *ngIf="hostList.length == '0'">
+	      <ion-col size="12">
+	        <img src="../assets/images/man.png">
+	        <label>No Hosts Are Available</label>
+	        <p>Check Back Soon</p>
+	      </ion-col>
+	    </div>
+	</ion-grid>
+</ion-content>

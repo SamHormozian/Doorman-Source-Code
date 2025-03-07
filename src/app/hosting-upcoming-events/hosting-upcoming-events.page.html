@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="myToolbar" mode="md">
+    <ion-buttons slot="start" mode="md">
+      <ion-back-button defaultHref="/tabs/tabs/settings" mode="md" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-center">Hosting Upcoming Events</ion-title>
+    <div slot="end" class="text-center"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-grid class="padd20">
+		<ion-row class="mainRow" *ngFor="let ev of eventLists">
+			<ion-col size="4">
+				<img src="{{ev.event_cover_image}}">
+			</ion-col>
+			<ion-col size="8" class="paddingLeft10 partyRightContain">
+				<div class="">
+					<h2>
+						{{ev.event_name}}
+						<ion-icon name="editIcon" class="editIcon" slot="end" routerLink="/edit-hosting-event/{{ev.event_id}}" routerDirection="root"></ion-icon>
+					</h2>
+					<label class="partyLabelHead">
+						<ion-icon name="clockIcon" class="clockIcon" slot="start"></ion-icon>
+						{{ev.time}}
+					</label>
+					<label class="partyLabelHead marginBottom0 marginLeft3">
+						<ion-icon name="calendarIcon" class="calendarIcon" slot="start"></ion-icon>
+						{{ev.date}}
+					</label>
+				</div>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

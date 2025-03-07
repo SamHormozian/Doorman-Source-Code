@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar class="myToolbar" mode="md">
+    <ion-buttons slot="start" mode="md">
+      <ion-back-button defaultHref="/edit-hosting-event" mode="md" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-center">Scan QR</ion-title>
+    <div slot="end" class="text-center">
+    	<img src="../assets/icon/send.png" class="SendIcon" routerLink="/send-qr" routerDirection="root">
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-row class="padd15">
+		<ion-col size="12" class="text-center headingRow">
+			<label class="">Send QR Scanner <br />For This Event</label>
+		</ion-col>
+	</ion-row>
+</ion-content>
+<ion-footer>
+	<ion-row class="footerRow">
+		<ion-col size="12">
+			<ion-button fill="solid" expand="block" mode="md" shape="solid" color="blue" class="btnForAll" (click)="scanQRcode()">Scan</ion-button>
+		</ion-col>
+	</ion-row>
+</ion-footer>

@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar class="myToolbar" mode="md">
+    <ion-buttons slot="start" mode="md">
+      <ion-back-button defaultHref="/otp" mode="md" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-center">Profile</ion-title>
+    <div slot="end"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-row class="mTop20">
+		<ion-col size="12" class="text-center">
+			<div class="container">
+			    <!-- <div class="outer" style="background-image: url('../assets/images/user.png')">
+			        <div class="inner">
+			           <ion-icon name="camera" class="camera-icon"></ion-icon>
+			        </div>
+			     </div> -->
+			     <div (click)="presentActionSheet()">
+			     	<img src="../assets/images/userCam.png" *ngIf="imageSourcePath ==''">
+			     	<img src="{{imageSourcePath}}" *ngIf="imageSourcePath !=''" class="hostProfilePic">
+			     </div>
+			  </div>
+		</ion-col>
+	</ion-row>
+	<form [formGroup]="createProfileForm" (ngSubmit)="doSubmitForm()" novalidate>
+		<ion-row class="formRow paddingTop0">
+			<ion-list mode="md" class="" lines="none">
+				<div class="formInputRow mBotm20">
+					<label>Your Name</label>
+			  		<ion-input type="text" placeholder="Enter your name" formControlName="name"></ion-input>
+			  		<span class="formError" *ngIf="isSubmitted && errorControl.name.errors?.required">
+						Name is required.
+					</span>
+				</div>
+				<div class="formInputRow mBotm20">
+					<ion-row>
+						<ion-col size="6" class="paddingLeft0">
+							<label>DOB</label>
+			  				<ion-input type="{{dateType}}" placeholder="00/00/0000" (ionFocus)="changeDateType()" formControlName="dob">
+			  					<ion-icon name="calendarIcon" slot="end" class="customInputIcon calendarIcon"></ion-icon>
+			  				</ion-input>
+			  				<span class="formError" *ngIf="isSubmitted && errorControl.dob.errors?.required">
+								DOB is required.
+							</span>
+						</ion-col>
+						<ion-col size="6" class="paddingRight0">
+							<label>Gender</label>
+							<ion-select placeholder="Select One" formControlName="gender">
+							  <ion-select-option value="Female">Female</ion-select-option>
+							  <ion-select-option value="Male">Male</ion-select-option>
+							</ion-select>
+							<span class="formError" *ngIf="isSubmitted && errorControl.gender.errors?.required">
+								Gender is required.
+							</span>
+						</ion-col>
+					</ion-row>
+				</div>
+				<div class="formInputRow mBotm20">
+					<label>School Name</label>
+			  		<ion-input type="text" placeholder="Enter your school name" formControlName="school"></ion-input>
+			  		<span class="formError" *ngIf="isSubmitted && errorControl.school.errors?.required">
+						School name is required.
+					</span>
+				</div>
+				<div class="formInputRow">
+					<label>Add a bio</label>
+			  		<ion-textarea rows="2" cols="6" placeholder="Your bio here..." formControlName="bio"></ion-textarea>
+			  		<span class="formError" *ngIf="isSubmitted && errorControl.bio.errors?.required">
+						Bio is required.
+					</span>
+				</div>
+			</ion-list>
+		</ion-row>
+		<ion-row class="paddingTop0 padd10 mBotm20">
+			<ion-col size="12" class="text-center">
+				 <ion-button fill="solid" expand="block" mode="md" shape="solid" color="blue" class="btnForAll" type="submit">Create Profile</ion-button>
+			</ion-col>
+		</ion-row>
+	</form>
+</ion-content>

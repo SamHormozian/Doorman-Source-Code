@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "920607308700",
+    "project_id": "doorman-f73c1",
+    "storage_bucket": "doorman-f73c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:920607308700:android:27ab62317b014f42d1e659",
+        "android_client_info": {
+          "package_name": "com.doorman.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "920607308700-hdcrdj8a719cvggk7tv80iuaku71g9lu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANpd00S_YzalYSmUQLJzBqGCB0en2nIGE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "920607308700-hdcrdj8a719cvggk7tv80iuaku71g9lu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,180 @@
+<ion-header>
+  <ion-toolbar class="myToolbar" mode="md">
+    <ion-buttons slot="start" mode="md">
+      <ion-back-button defaultHref="/tabs/tabs/home" mode="md" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-center">Controls</ion-title>
+    <div slot="end"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  [fullscreen]="true">
+	<ion-grid class="padd15 paddingRight0">
+		<!-- Starting Attending Upcoming Event -->
+		<ion-row class="paddingBottom10 titleHead">
+		    <ion-col size="8">
+		      <label class="topTitle">Attending Upcoming Events</label>
+		    </ion-col>
+		    <ion-col size="4" class="text-right viewAllTitleHead" routerLink="/tabs/tabs/settings/attending-event" routerDirection="root" *ngIf="attendingUpcomingEvents.length > 0">
+		      <label class="viewAllTitle">More</label>
+		      <ion-icon name="chevron-forward-outline" class="topIcon"></ion-icon>
+		    </ion-col>
+	  	</ion-row>
+	  	<ion-row class="paddingBottom15">
+	  		<div class="upcomingEvewntSliderMain" *ngIf="attendingUpcomingEvents.length > 0">
+	  			<div class="upcoming_event_slider" *ngFor="let rowOne of attendingUpcomingEvents" routerLink="/attending-event-details/{{rowOne.event_id}}" routerDirection="root">
+		          	<div class="partyLeftContain">
+						<img src="{{rowOne.event_cover_image}}">
+					</div>
+					<div class="paddingLeft10 partyRightContain">
+						<h2> {{rowOne.event_name}} </h2>
+						<label class="partyLabelHead">
+							<ion-icon name="clockIcon" class="clockIcon" slot="start"></ion-icon>
+							{{rowOne.time}}
+						</label>
+						<label class="partyLabelHead marginBottom0 marginLeft3">
+							<ion-icon name="calendarIcon" class="calendarIcon" slot="start"></ion-icon>
+							{{rowOne.date}}
+						</label>
+					</div>
+	          	</div>
+		    </div>
+		    <div class="noEventBarHead" *ngIf="attendingUpcomingEvents.length == '0'">
+		    	<div class="noEventBar">
+		    		<ion-col size="12">
+			          <img src="../assets/images/no_data_calendar.png" class="noImg1">
+			          <label>No Upcoming Events</label>
+			          <p>Apply To An Event</p>
+			        </ion-col>
+		    	</div>
+		    </div>
+	  	</ion-row>
+
+	  	<!-- Starting Hosting Upcoming Events -->
+	  	<ion-row class="paddingBottom10 titleHead">
+		    <ion-col size="8">
+		      <label class="topTitle">Hosting Upcoming Events</label>
+		    </ion-col>
+		    <ion-col size="4" class="text-right viewAllTitleHead" routerLink="/tabs/tabs/settings/hosting-upcoming-events" routerDirection="root" *ngIf="hostingUpcomingEvents.length > 0">
+		      <label class="viewAllTitle">More</label>
+		      <ion-icon name="chevron-forward-outline" class="topIcon"></ion-icon>
+		    </ion-col>
+	  	</ion-row>
+	  	<ion-row class="paddingBottom15">
+	  		<div class="upcomingEvewntSliderMain" *ngIf="hostingUpcomingEvents.length > 0">
+	  			<div class="upcoming_event_slider" *ngFor="let rowTwo of hostingUpcomingEvents" routerLink="/edit-hosting-event/{{rowTwo.event_id}}" routerDirection="root">
+		          	<div class="partyLeftContain">
+						<img src="{{rowTwo.event_cover_image}}">
+					</div>
+					<div class="paddingLeft10 partyRightContain">
+						<h2> {{rowTwo.event_name}} </h2>
+						<label class="partyLabelHead">
+							<ion-icon name="clockIcon" class="clockIcon" slot="start"></ion-icon>
+							{{rowTwo.time}}
+						</label>
+						<label class="partyLabelHead marginBottom0 marginLeft3">
+							<ion-icon name="calendarIcon" class="calendarIcon" slot="start"></ion-icon>
+							{{rowTwo.date}}
+						</label>
+					</div>
+	          	</div>
+		    </div>
+		    <div class="noEventBarHead" *ngIf="hostingUpcomingEvents.length == '0'">
+		    	<div class="noEventBar">
+		    		<ion-col size="12">
+			          <img src="../assets/images/no_data_calendar.png" class="noImg1">
+			          <label>You Haven't Hosting Any Events</label>
+			          <p>Host An Event</p>
+			        </ion-col>
+		    	</div>
+		    </div>
+	  	</ion-row>
+
+	  	<!-- Starting Previous Events Attented -->
+	  	<ion-row class="paddingBottom10 titleHead">
+		    <ion-col size="8">
+		      <label class="topTitle">Previous Events Attended</label>
+		    </ion-col>
+		    <ion-col size="4" class="text-right viewAllTitleHead" routerLink="/tabs/tabs/settings/previous-attented-events" routerDirection="root" *ngIf="prevEventsAttended.length > 0">
+		      <label class="viewAllTitle">More</label>
+		      <ion-icon name="chevron-forward-outline" class="topIcon"></ion-icon>
+		    </ion-col>
+	  	</ion-row>
+	  	<ion-row class="paddingBottom15">
+	  		<div class="eventAttentedMain" *ngIf="prevEventsAttended.length > 0">
+	  			<div class="event_attented_slider" *ngFor="let rowThree of prevEventsAttended" routerLink="/previous-attented-event-details/{{rowThree.event_id}}" routerDirection="root">
+	  				<img src="{{rowThree.event_cover_image}}">
+	  				<label>{{rowThree.event_name}}</label>
+	  			</div>
+  			</div>
+  			<div class="noEventBarHead" *ngIf="prevEventsAttended.length == '0'">
+		    	<div class="noEventBar">
+		    		<ion-col size="12">
+			          <img src="../assets/images/no_data_calendar.png" class="noImg2">
+			          <label>You Haven't Attended Any Events Yet</label>
+			          <p>Attend An Event</p>
+			        </ion-col>
+		    	</div>
+		    </div>
+		</ion-row>
+
+		<!-- Starting Previous Events Hosted -->
+	  	<ion-row class="paddingBottom10 titleHead">
+		    <ion-col size="8">
+		      <label class="topTitle">Previous Events Hosted</label>
+		    </ion-col>
+		    <ion-col size="4" class="text-right viewAllTitleHead" routerLink="/tabs/tabs/settings/previous-event-hosted" routerDirection="root" *ngIf="prevEventsHosted.length > 0">
+		      <label class="viewAllTitle">More</label>
+		      <ion-icon name="chevron-forward-outline" class="topIcon"></ion-icon>
+		    </ion-col>
+	  	</ion-row>
+	  	<ion-row class="paddingBottom15">
+	  		<div class="eventAttentedMain" *ngIf="prevEventsHosted.length > 0">
+	  			<div class="event_attented_slider" *ngFor="let rowFour of prevEventsHosted" routerLink="/previous-event-hosted-details/{{rowFour.event_id}}" routerDirection="root">
+	  				<img src="{{rowFour.event_cover_image}}">
+	  				<label>{{rowFour.event_name}}</label>
+	  			</div>
+  			</div>
+  			<div class="noEventBarHead" *ngIf="prevEventsHosted.length == '0'">
+		    	<div class="noEventBar">
+		    		<ion-col size="12">
+			          <img src="../assets/images/no_data_calendar.png" class="noImg2">
+			          <label>You Haven't Hosted Any Events Yet</label>
+			          <p>Host An Event</p>
+			        </ion-col>
+		    	</div>
+		    </div>
+		</ion-row>
+	</ion-grid>
+	<!-- Starting Bottom Part -->
+	<ion-grid class="padding0 bottomControlls">
+		<ion-row class="bottomControllsRow" routerLink="/tabs/tabs/settings/user-profile/1" routerDirection="root">
+			<ion-col size="8">
+		      <label class="topTitle">Profile</label>
+		    </ion-col>
+		    <ion-col size="4" class="text-right">
+		      <label class="viewAllTitle">More</label>
+		      <ion-icon name="chevron-forward-outline" class="topIcon"></ion-icon>
+		    </ion-col>
+		</ion-row>
+		<ion-row class="bottomControllsRow" routerLink="/tabs/tabs/settings/contact" routerDirection="root">
+			<ion-col size="8">
+		      <label class="topTitle">Contact</label>
+		    </ion-col>
+		    <ion-col size="4" class="text-right" >
+		      <label class="viewAllTitle">More</label>
+		      <ion-icon name="chevron-forward-outline" class="topIcon"></ion-icon>
+		    </ion-col>
+		</ion-row>
+		<ion-row class="bottomControllsRow" routerLink="/tabs/tabs/settings/notification" routerDirection="root">
+			<ion-col size="8">
+		      <label class="topTitle">User Notifications</label>
+		    </ion-col>
+		    <ion-col size="4" class="text-right" >
+		      <label class="viewAllTitle">More</label>
+		      <ion-icon name="chevron-forward-outline" class="topIcon"></ion-icon>
+		    </ion-col>
+		</ion-row>
+		<ion-row class="bottomControllsRow"></ion-row>
+	</ion-grid>
+</ion-content>

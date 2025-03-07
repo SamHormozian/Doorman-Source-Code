@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar class="myToolbar" mode="md">
+    <ion-buttons slot="start" mode="md">
+      <ion-back-button defaultHref="/host-profile/{{host_id}}/{{isPageType}}" mode="md" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-center">Rate a Host</ion-title>
+    <div slot="end"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-row class="padd15 mainRow">
+		<ion-col class="padding0 topImageRow text-center" size="12">
+			<img src="{{hostDetails.profile_pic}}">
+		</ion-col>
+		<ion-col class="padding0 hostNameRow text-center" size="12">
+			<h3>{{hostDetails.name}}</h3>
+			<label>Rate as a host</label>
+		</ion-col>
+		<ion-col class="padding0 ratingRow text-center" size="12">
+			<h3>{{rating}}.0</h3>
+		</ion-col>
+		<ion-col class="padding0 ratingStarRow text-center" size="12">
+			<span *ngFor="let i of [1,2,3,4,5]">
+				<img src="../assets/icon/star_active.png" (click)="starClicked(i)" *ngIf="i<=rating">
+				<img src="../assets/icon/star_inactive.png" (click)="starClicked(i)" *ngIf="i>rating">
+			</span>
+		</ion-col>
+		<ion-col class="padding0 commentRow formInputRow text-left" size="12">
+			<label>Reason For Rating:</label>
+	  		<ion-textarea rows="6" cols="6" placeholder="Please type here..." [(ngModel)]="comment" ></ion-textarea>
+		</ion-col>
+		<ion-col size="12" class="text-center padding0">
+			 <ion-button fill="solid" expand="block" mode="md" shape="solid" color="blue" class="btnForAll" (click)="doSubmitReview()">Submit</ion-button>
+		</ion-col>
+	</ion-row>
+</ion-content>

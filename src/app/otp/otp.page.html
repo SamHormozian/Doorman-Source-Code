@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar class="myToolbar" mode="md">
+    <ion-buttons slot="start" mode="md">
+      <ion-back-button defaultHref="/signup" mode="md" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-center">Verify Mobile</ion-title>
+    <div slot="end"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-row class="mTop20 mBotm20">
+		<ion-col size="12" class="text-center">
+			<label class="topHeader">We sent a verification code to</label>
+			<label class="topHeader">{{signUpData.phone}}</label>
+		</ion-col>
+	</ion-row>
+	<form [formGroup]="otpForm" (ngSubmit)="doSubmitForm()" novalidate>
+		<ion-row class="formRow mBotm20">
+			<label class="otpLabel">Please enter that below code</label>
+			<ion-input class="marginLeft0 otpBox" #otp1 type="tel" formControlName="otp1" maxlength="1" (keyup)="otpController($event,otp2,'')"></ion-input>
+	     	<ion-input class="otpBox" #otp2 type="tel" formControlName="otp2" maxlength="1" (keyup)="otpController($event,otp3,otp1)"></ion-input>
+	     	<ion-input class="otpBox" #otp3 type="tel" formControlName="otp3" maxlength="1" (keyup)="otpController($event,otp4,otp2)"></ion-input>
+	     	<ion-input class="otpBox" #otp4 type="tel" formControlName="otp4" maxlength="1" (keyup)="otpController($event,otp5,otp3)"></ion-input>
+		    <ion-input class="otpBox" #otp5 type="tel" formControlName="otp5" maxlength="1" (keyup)="otpController($event,otp6,otp4)"></ion-input>
+		    <ion-input class="marginRight0 otpBox" #otp6 type="tel" formControlName="otp6" maxlength="1" (keyup)="otpController($event,'',otp5)"></ion-input>
+		    <span class="formError" *ngIf="isSubmitted && (errorControl.otp1.errors?.required || errorControl.otp2.errors?.required || errorControl.otp3.errors?.required || errorControl.otp4.errors?.required || errorControl.otp5.errors?.required || errorControl.otp6.errors?.required)">
+				OTP is required
+			</span>
+		</ion-row>
+		<ion-row class="paddingTop0 padd10">
+			<ion-col size="12" class="text-center">
+				 <ion-button fill="solid" expand="block" mode="md" shape="solid" color="blue" class="btnForAll" type="submit">Verify & Proceed</ion-button>
+			</ion-col>
+		</ion-row>
+	</form>
+	<ion-row class="paddingBottom0 padd10">
+		<ion-col size="12" class="text-center">
+			<label class="resendLabel">Resend Code?</label>
+		</ion-col>
+	</ion-row>
+</ion-content>

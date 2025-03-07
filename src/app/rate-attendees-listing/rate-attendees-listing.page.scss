@@ -1,0 +1,73 @@
+.mainRow{
+	background: #fff;
+	border-radius: 10px;
+	padding: 6px;
+	width: 100%;
+	position: relative;
+	display: table;
+	margin-bottom: 20px;
+
+	.leftImg{
+		width: 60px;
+		display: table-cell;
+		vertical-align: middle;
+		img{
+			height: 55px;
+			border-radius: 50%;
+			width: 55px;
+			vertical-align: middle;
+		}
+	}
+	.rightImg{
+		vertical-align: middle;
+		display: table-cell;
+		text-align: right;
+		img{
+			vertical-align: middle;
+			margin-right: 5px;
+		}
+	}
+
+	.middleText{
+		width: 45%;
+		display: table-cell;
+		vertical-align: middle;
+		span{
+			display: table-cell;
+			vertical-align: middle;
+			color: #000;
+			font-size: 18px;
+			padding-left: 5px
+		}
+	}
+}
+ion-footer{
+	background: #000 !important;
+	padding-top: 10px;
+	padding-bottom: 15px;
+
+	.footerRow{
+		padding: 10px 10px 10px 10px;
+
+		span{
+			font-size: 14px;
+			color: #fff;
+			line-height: 1.5;
+		}
+
+		ion-button{
+			height: 60px !important;
+		}
+	}
+}
+.topHeadingRow{
+	margin-bottom: 25px;
+	margin-top: 5px;
+
+	label{
+		padding: 0px 30px;
+		display: inline-block;
+		text-align: center;
+		font-size: 17px;
+	}
+}

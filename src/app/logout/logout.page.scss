@@ -1,0 +1,30 @@
+.mainRow{
+	.topImgRow{
+		margin-top: 50px;
+
+		img{
+			height: 140px
+		}
+	}
+}
+ion-footer{
+	padding-bottom: 40px;
+
+	.footerText{
+		p{
+			color: #fff;
+			font-size: 16px;
+			margin-bottom: 20px;
+
+			ion-icon{
+				color: yellow;
+				font-size: 20px;
+				display: inline-block;
+				vertical-align: middle;
+			}
+		}
+	}
+}
+.footer-md::before{
+	background: none !important;
+}

@@ -1,0 +1,165 @@
+.topTitle{
+  font-size: 17px;
+  letter-spacing: 0.5px;
+  vertical-align: middle;
+}
+.viewAllTitleHead{
+	padding-right: 15px !important;
+}
+.viewAllTitle{
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  vertical-align: middle;
+}
+.topIcon{
+  font-size: 22px;
+  vertical-align: middle;
+  padding-left: 5px;
+}
+.titleHead{
+	ion-col{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	
+}
+.upcomingEvewntSliderMain{
+	display: flex;
+  	flex-wrap: nowrap;
+  	overflow-x: auto;
+}
+.upcoming_event_slider{
+	width: 90%;
+	padding: 7px;
+	background: #fff;
+	border-radius: 10px;
+	flex: 0 0 auto;
+	margin-right: 15px;
+	display: table;
+	position: relative;
+
+	.partyLeftContain{
+		width: 34%;
+		vertical-align: middle;
+		display: table-cell;
+
+		img{
+			border-radius: 10px;
+			vertical-align: middle;
+			height: 107px;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+
+	.partyRightContain{
+		width: 65%;
+  		vertical-align: middle;
+		display: table-cell;
+
+
+  		h2{
+			margin-top: 0px;
+			font-size: 18px;
+			font-weight: 600;
+			letter-spacing: 0.5px;
+			color: #000;
+		}
+
+		.partyLabelHead{
+	  		width: 100%;
+	  		color: #000;
+	  		vertical-align: middle;
+	  		letter-spacing: 1px;
+			font-size: 14px;
+			display: inline-block;
+			margin-bottom: 10px;
+
+	  		.clockIcon{
+		  		font-size: 18px;
+		  		vertical-align: middle;
+		  		margin-right: 8px;
+		  	}
+
+		  	.calendarIcon{
+		  		font-size: 15px;
+		  		vertical-align: middle;
+		  		margin-right: 8px;
+		  	}
+	  	}
+  	}
+}
+.eventAttentedMain{
+	display: flex;
+  	flex-wrap: nowrap;
+  	overflow-x: auto;
+
+  	.event_attented_slider{
+  		width: 45%;
+		background: #fff;
+		border-radius: 15px;
+		flex: 0 0 auto;
+		margin-right: 15px;
+		display: table;
+		position: relative;
+
+		img{
+			object-fit: cover;
+			border-radius: 15px 15px 20px 20px;
+			height: 120px;
+			width: 100%;
+		}
+
+		label{
+			color: #000;
+			text-align: center;
+			width: 100%;
+			display: inline-block;
+			padding: 15px;
+			font-weight: 600;
+			letter-spacing: 1px
+		}
+  	}
+}
+.bottomControlls{
+	.bottomControllsRow{
+		padding: 15px;
+		border-top: 1px solid #939393;
+
+		ion-col{
+			padding: 0px;
+		}
+	}
+}
+.noEventBarHead{
+	width: 100%;
+}
+.noEventBar{
+	width: 96%;
+	background: #fff;
+	border-radius: 15px;
+	text-align: center;
+	padding: 15px 5px 0px 5px;
+
+	.noImg1{
+      height: 50px;
+    }
+    .noImg2{
+      height: 80px;
+    }
+
+    label{
+      width: 100%;
+      display: inline-block;
+      color: #000;
+      text-shadow: 0px 0px 1px #000;
+      font-size: 20px;
+    }
+    p{
+      margin-top: 5px;
+      margin-bottom: 0px;
+      font-size: 15px;
+      color: gray;
+      text-shadow: 0px 0px 0px gray;
+    }
+}

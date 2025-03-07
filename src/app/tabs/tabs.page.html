@@ -1,0 +1,28 @@
+<ion-tabs #tabs mode="md" (ionTabsDidChange)="setCurrentTab($event)"> 
+	<ion-tab-bar slot="bottom" mode="md">
+
+	 	<ion-tab-button tab="home" (click)="goToHome()">
+		 	<ion-icon name="homeIcon" [ngClass]="selectedTab =='home' ? 'homeIconActive' : 'homeIconInactive'"></ion-icon>
+		 	<ion-label>Home</ion-label>
+		 	<span class="topActiveBar" *ngIf="selectedTab =='home'"></span>
+	 	</ion-tab-button> 
+
+	 	<ion-tab-button tab="map">
+			 <ion-icon name="mapIcon" [ngClass]="selectedTab =='map' ? 'mapIconActive' : 'mapIconInactive'"></ion-icon>
+			 <ion-label>Map</ion-label>
+			 <span class="topActiveBar"  *ngIf="selectedTab =='map'"></span>
+	 	</ion-tab-button>
+
+	 	<ion-tab-button tab="host-event">
+			 <ion-icon name="hostIcon" [ngClass]="selectedTab =='host-event' ? 'hostIconActive' : 'hostIconInactive'"></ion-icon>
+			 <ion-label>Host</ion-label>
+			 <span class="topActiveBar"  *ngIf="selectedTab =='host-event'"></span>
+	 	</ion-tab-button>
+
+	 	<ion-tab-button tab="settings" (click)="goToSetting()">
+			 <ion-icon name="controlIcon" [ngClass]="selectedTab =='settings' ? 'controlIconActive' : 'controlIconInactive'"></ion-icon>
+			 <ion-label>Setting</ion-label>
+			 <span class="topActiveBar"  *ngIf="selectedTab =='settings'"></span>
+	 	</ion-tab-button>
+	 </ion-tab-bar>
+</ion-tabs>
